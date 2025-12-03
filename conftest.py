@@ -1,14 +1,19 @@
 import pytest
-from selene import browser
+
+from utils.attachments import (
+    attach_screenshot,
+    attach_page_source,
+    attach_json
+)
 
 
-@pytest.fixture(scope='session', autouse=True)
-def setup_browser():
-    browser.config.driver_name = 'chrome'
-    browser.config.window_width = 1440
-    browser.config.window_height = 1080
-    browser.config.save_screenshot_on_failure = True
-    browser.config.reports_folder = 'reports'
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    """Авто добавление аттача, при падении."""
+    outcome = yield
+    result = outcome.get_result()
 
-    yield
-    browser.quit()
+    if result.failed:
+        attach_screenshot("Failure screenshot")
+        attach_page_source("Failure page source")
+        attach_json({"test": item.name, "status": "failed"}, "Failure metadata")
