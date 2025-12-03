@@ -7,8 +7,7 @@
 
 Последний Allure отчёт:
 
-![Tests & Allure Report](https://github.com/goncharrov-a/lesson_10/actions/workflows/test.yml/badge.svg)
-
+[![Tests & Allure Report](https://github.com/goncharrov-a/lesson_10/actions/workflows/test.yml/badge.svg)](https://goncharrov-a.github.io/lesson_10/)
 ---
 
 ## 📌 Что реализовано
