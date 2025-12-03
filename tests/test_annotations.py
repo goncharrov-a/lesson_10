@@ -22,7 +22,7 @@ from utils.attachments import (
 @allure.label("layer", "ui")
 @allure.label("component", "issues")
 @allure.label("tcType", "functional")
-def test_issue_title_is_visible():
+def test_issue_title_is_visible_full():
     repo = "goncharrov-a/lesson_10"
     expected_title = "Example_issue"
     issue_number = 1
@@ -31,12 +31,19 @@ def test_issue_title_is_visible():
         browser.open(f"https://github.com/{repo}/issues")
 
     with allure.step(f"Открыть Issue с заголовком '{expected_title}'"):
-        browser.all('[data-testid="issue-pr-title-link"]').element_by(have.exact_text(expected_title)).click()
+        browser.all('[data-testid="issue-pr-title-link"]').element_by(
+            have.exact_text(expected_title)
+        ).click()
 
     with allure.step("Проверить заголовок внутри Issue"):
-        browser.element('[data-testid="issue-title"]').should(have.exact_text(expected_title))
+        browser.element('[data-testid="issue-title"]').should(
+            have.exact_text(expected_title)
+        )
 
     with allure.step("Добавить вложения Issue"):
         attach_screenshot("Issue screenshot")
         attach_page_source("Issue page source")
-        attach_json({"repository": repo, "issue": issue_number, "title": expected_title}, "Metadata")
+        attach_json(
+            {"repository": repo, "issue": issue_number, "title": expected_title},
+            "Metadata"
+        )
