@@ -1,3 +1,5 @@
+import json
+
 import allure
 from selene import browser
 
@@ -19,3 +21,11 @@ def attach_logs(name="Browser Console Logs"):
         allure.attach(text, name=name, attachment_type=allure.attachment_type.TEXT)
     except Exception:
         pass
+
+
+def attach_json(data: dict, name="JSON Data"):
+    try:
+        json_str = json.dumps(data, indent=2, ensure_ascii=False)
+        allure.attach(json_str, name=name, attachment_type=allure.attachment_type.JSON)
+    except Exception:
+        allure.attach(str(data), name=name, attachment_type=allure.attachment_type.TEXT)
