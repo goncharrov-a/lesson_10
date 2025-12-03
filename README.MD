@@ -8,7 +8,7 @@
 
 Последний Allure отчёт:
 
-[![Allure Report](https://img.shields.io/badge/Allure-Report-blueviolet)](https://goncharrov-a.github.io/lesson_10/)
+![Tests & Allure Report](https://github.com/goncharrov-a/lesson_10/actions/workflows/test.yml/badge.svg)
 
 ---
 
