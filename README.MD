@@ -1,6 +1,6 @@
 # Lesson 10 — UI Tests with Selene + Allure + GitHub Actions
 
-![Tests & Allure Report](https://github.com/goncharrov-a/lesson_10/actions/workflows/workflow.yml/badge.svg)
+![Tests & Allure Report](https://github.com/goncharrov-a/lesson_10/actions/workflows/test.yml/badge.svg)
 
 ---
 
