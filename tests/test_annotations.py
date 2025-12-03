@@ -1,6 +1,12 @@
 import allure
 from selene import browser, have
 
+from utils.attachments import (
+    attach_screenshot,
+    attach_page_source,
+    attach_json
+)
+
 
 @allure.epic("Веб-интерфейс GitHub")
 @allure.feature("GitHub Issues")
@@ -19,6 +25,7 @@ from selene import browser, have
 def test_issue_title_is_visible():
     repo = "goncharrov-a/lesson_10"
     expected_title = "Example_issue"
+    issue_number = 1
 
     with allure.step("Открыть список Issues репозитория"):
         browser.open(f"https://github.com/{repo}/issues")
@@ -28,3 +35,8 @@ def test_issue_title_is_visible():
 
     with allure.step("Проверить заголовок внутри Issue"):
         browser.element('[data-testid="issue-title"]').should(have.exact_text(expected_title))
+
+    with allure.step("Добавить вложения Issue"):
+        attach_screenshot("Issue screenshot")
+        attach_page_source("Issue page source")
+        attach_json({"repository": repo, "issue": issue_number, "title": expected_title}, "Metadata")
