@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1288","test_issue_title_is_visible_steps","tests","Wed Dec 03 11:12:30 UTC 2025","passed","Wed Dec 03 11:12:31 UTC 2025","","test_decorators","",""
+"","1308","test_issue_title_is_visible_lambda","tests","Wed Dec 03 11:12:31 UTC 2025","passed","Wed Dec 03 11:12:33 UTC 2025","","test_labels","",""
+"Тест проверяет корректное отображение заголовка Issue в веб-интерфейсе GitHub.","3605","Проверка отображения Issue в GitHub","tests","Wed Dec 03 11:12:26 UTC 2025","passed","Wed Dec 03 11:12:29 UTC 2025","","test_annotations","",""
+"","1289","test_issue_title_is_visible_short","tests","Wed Dec 03 11:12:33 UTC 2025","passed","Wed Dec 03 11:12:34 UTC 2025","","test_pure_selene","",""
