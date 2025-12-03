@@ -3,7 +3,12 @@ from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from utils.attachments import attach_screenshot, attach_page_source, attach_logs
+from utils.attachments import (
+    attach_screenshot,
+    attach_page_source,
+    attach_logs,
+    attach_json
+)
 
 
 @pytest.fixture(scope="function", autouse=True)
@@ -25,14 +30,19 @@ def setup_browser(request):
 
     if request.node.rep_call.failed:
         attach_screenshot("Failure screenshot")
-        attach_page_source("Page source")
+        attach_page_source("Failure page source")
         attach_logs("Browser console logs")
+        attach_json(
+            {"test": request.node.name, "status": "failed"},
+            "Failure metadata"
+        )
 
     driver.quit()
 
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
+    """Hook к rep_call фикстуры."""
     outcome = yield
     rep = outcome.get_result()
 
