@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Тест проверяет корректное отображение заголовка Issue в веб-интерфейсе GitHub.","19967","Проверка отображения Issue в GitHub","","Wed Dec 03 10:25:04 UTC 2025","passed","Wed Dec 03 10:25:24 UTC 2025","","","",""
